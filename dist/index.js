@@ -13,6 +13,7 @@ const app = (0, express_1.default)();
 dotenv_1.default.config();
 (0, db_1.default)();
 let totalProfitPercentage = 0.0;
+let totalProfit = 0.0;
 app.use(express_1.default.json());
 // Enable CORS for all routes
 app.use((0, cors_1.default)({
@@ -23,7 +24,11 @@ app.get("/updatePercentage/:id", (req, res) => {
     totalProfitPercentage = parseFloat(req.params.id);
     res.status(201).json({ message: totalProfitPercentage });
 });
-app.get("/getLastPercentage", (req, res) => {
+app.get("/updateDollar/:id", (req, res) => {
+    totalProfit = parseFloat(req.params.id);
+    res.status(201).json({ message: totalProfitPercentage });
+});
+app.get("/getLastValues", (req, res) => {
     res.status(201).json({ message: totalProfitPercentage });
 });
 // User Route

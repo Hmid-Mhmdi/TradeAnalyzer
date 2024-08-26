@@ -12,6 +12,8 @@ dotenv.config();
 connectDB();
 
 let totalProfitPercentage=0.0;
+let totalProfit=0.0;
+
 
 app.use(express.json());
 
@@ -26,8 +28,13 @@ app.get("/updatePercentage/:id", (req: Request, res: Response) => {
   res.status(201).json({ message: totalProfitPercentage });
 });
 
+app.get("/updateDollar/:id", (req: Request, res: Response) => {
+  totalProfit=parseFloat(req.params.id);
+  res.status(201).json({ message: totalProfitPercentage });
+});
 
-app.get("/getLastPercentage", (req: Request, res: Response) => {
+
+app.get("/getLastValues", (req: Request, res: Response) => {
   res.status(201).json({ message: totalProfitPercentage });
 });
 
