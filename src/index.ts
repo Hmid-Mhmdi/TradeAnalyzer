@@ -11,6 +11,8 @@ dotenv.config();
 
 connectDB();
 
+let totalProfitPercentage=0.0;
+
 app.use(express.json());
 
 // Enable CORS for all routes
@@ -19,13 +21,14 @@ app.use(cors({
 }));
 
 // Default
-app.get("/api/:id", (req: Request, res: Response) => {
-  res.status(201).json({ message: "Welcome to Auth ts"+ req.params.id });
+app.get("/updatePercentage/:id", (req: Request, res: Response) => {
+  totalProfitPercentage=parseFloat(req.params.id);
+  res.status(201).json({ message: totalProfitPercentage });
 });
 
 
-app.get("/test", (req: Request, res: Response) => {
-  res.status(201).json({ message: "Welcome to Test" });
+app.get("/getLastPercentage", (req: Request, res: Response) => {
+  res.status(201).json({ message: totalProfitPercentage });
 });
 
 // User Route
