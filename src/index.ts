@@ -23,6 +23,11 @@ app.get("/api", (req: Request, res: Response) => {
   res.status(201).json({ message: "Welcome to Auth ts" });
 });
 
+
+app.get("/test", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Test" });
+});
+
 // User Route
 app.use("/api/auth", AuthRoutes);
 
