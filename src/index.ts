@@ -30,12 +30,12 @@ app.get("/updatePercentage/:id", (req: Request, res: Response) => {
 
 app.get("/updateDollar/:id", (req: Request, res: Response) => {
   totalProfit=parseFloat(req.params.id);
-  res.status(201).json({ message: totalProfitPercentage });
+  res.status(201).json({ message: totalProfit });
 });
 
 
 app.get("/getLastValues", (req: Request, res: Response) => {
-  res.status(201).json({ message: totalProfitPercentage });
+  res.status(201).json({  totalProfitPercentage ,totalProfit});
 });
 
 // User Route
