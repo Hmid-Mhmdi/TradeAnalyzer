@@ -20,13 +20,10 @@ app.use((0, cors_1.default)({
     origin: "*",
 }));
 // Default
-app.get("/updatePercentage/:id", (req, res) => {
-    totalProfitPercentage = parseFloat(req.params.id);
-    res.status(201).json({ message: totalProfitPercentage });
-});
-app.get("/updateDollar/:id", (req, res) => {
-    totalProfit = parseFloat(req.params.id);
-    res.status(201).json({ message: totalProfit });
+app.get("/updateValues/:percentage/:dollar", (req, res) => {
+    totalProfitPercentage = parseFloat(req.params.percentage);
+    totalProfit = parseFloat(req.params.dollar);
+    res.status(201).json({ totalProfitPercentage, totalProfit });
 });
 app.get("/getLastValues", (req, res) => {
     res.status(201).json({ totalProfitPercentage, totalProfit });

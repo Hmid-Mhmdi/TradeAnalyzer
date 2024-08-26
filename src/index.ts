@@ -23,15 +23,13 @@ app.use(cors({
 }));
 
 // Default
-app.get("/updatePercentage/:id", (req: Request, res: Response) => {
-  totalProfitPercentage=parseFloat(req.params.id);
-  res.status(201).json({ message: totalProfitPercentage });
+app.get("/updateValues/:percentage/:dollar", (req: Request, res: Response) => {
+  totalProfitPercentage=parseFloat(req.params.percentage);
+  totalProfit=parseFloat(req.params.dollar);
+  res.status(201).json({  totalProfitPercentage ,totalProfit});
 });
 
-app.get("/updateDollar/:id", (req: Request, res: Response) => {
-  totalProfit=parseFloat(req.params.id);
-  res.status(201).json({ message: totalProfit });
-});
+
 
 
 app.get("/getLastValues", (req: Request, res: Response) => {
