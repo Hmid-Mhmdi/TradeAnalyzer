@@ -19,8 +19,8 @@ app.use(cors({
 }));
 
 // Default
-app.get("/api", (req: Request, res: Response) => {
-  res.status(201).json({ message: "Welcome to Auth ts" });
+app.get("/api/:id", (req: Request, res: Response) => {
+  res.status(201).json({ message: "Welcome to Auth ts"+ req.params.id });
 });
 
 
